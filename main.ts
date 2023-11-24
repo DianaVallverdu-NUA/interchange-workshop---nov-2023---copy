@@ -11,6 +11,17 @@ function move_forward_for_5_seconds () {
     pins.servoWritePin(AnalogPin.P1, P1_STOP)
     pins.servoWritePin(AnalogPin.P2, P2_STOP)
 }
+function turn_around_90_degrees () {
+    // wait 5 secs
+    control.waitMicros(0.5 * MICROSECOND_PER_SECOND)
+    pins.servoWritePin(AnalogPin.P1, P1_Turn)
+    pins.servoWritePin(AnalogPin.P1, P2_Turn)
+    control.waitMicros(5 * MICROSECOND_PER_SECOND)
+    pins.servoWritePin(AnalogPin.P1, P1_STOP)
+    pins.servoWritePin(AnalogPin.P2, P2_STOP)
+}
+let P2_Turn = 0
+let P1_Turn = 0
 let P2_STOP = 0
 let P1_STOP = 0
 let P2_FORWARD = 0
@@ -27,3 +38,7 @@ let DEGREES_PER_SECOND = 251
 // you should know this from the forward calibrator
 P1_STOP = 90
 P2_STOP = 90
+// ===== Individual buggy constants =====
+// you should know this from the forward calibrator
+P1_Turn = 45
+P2_Turn = 45
